@@ -6,55 +6,55 @@ const svgOverlay = Buffer.from(`
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#040c1d" stop-opacity="0.6"/>
-      <stop offset="35%" stop-color="#040c1d" stop-opacity="0.1"/>
-      <stop offset="65%" stop-color="#040c1d" stop-opacity="0.75"/>
-      <stop offset="100%" stop-color="#040c1d" stop-opacity="0.96"/>
+      <stop offset="0%" stop-color="#fffdf8" stop-opacity="0.88"/>
+      <stop offset="40%" stop-color="#fff8eb" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#fef2f4" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#fdf5e6" stop-opacity="0.95"/>
     </linearGradient>
     <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="40%" stop-color="#f5e7c8"/>
-      <stop offset="100%" stop-color="#e6c68a"/>
+      <stop offset="0%" stop-color="#9a3412"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#78350f" flood-opacity="0.25"/>
     </filter>
   </defs>
 
-  <!-- Gradient scrim for readable text -->
+  <!-- Radiant warm festive gradient scrim -->
   <rect width="1200" height="630" fill="url(#grad)" />
 
-  <!-- Elegant dual border -->
-  <rect x="28" y="28" width="1144" height="574" fill="none" stroke="#e6c68a" stroke-width="1.2" stroke-opacity="0.45" />
-  <rect x="36" y="36" width="1128" height="558" fill="none" stroke="#e6c68a" stroke-width="0.6" stroke-opacity="0.25" />
+  <!-- Elegant gold borders -->
+  <rect x="28" y="28" width="1144" height="574" fill="none" stroke="#d97706" stroke-width="2" stroke-opacity="0.6" rx="16"/>
+  <rect x="36" y="36" width="1128" height="558" fill="none" stroke="#d97706" stroke-width="0.8" stroke-opacity="0.35" rx="12"/>
 
   <!-- Top auspicious header -->
-  <g transform="translate(600, 78)" text-anchor="middle" filter="url(#shadow)">
-    <text font-family="Georgia, Garamond, serif" font-size="18" letter-spacing="4" fill="#e6c68a" font-weight="bold">॥ शुभ विवाह ॥</text>
-    <text y="24" font-family="system-ui, -apple-system, sans-serif" font-size="11" letter-spacing="3.5" fill="#f4efe8" fill-opacity="0.85" font-weight="600">WEDDING CELEBRATION INVITATION</text>
+  <g transform="translate(600, 85)" text-anchor="middle" filter="url(#shadow)">
+    <text font-family="Georgia, Garamond, serif" font-size="20" letter-spacing="4" fill="#9f1239" font-weight="bold">॥ श्री गणेशाय नमः ॥  ·  ॥ जय बुआ दाती ॥</text>
+    <text y="26" font-family="system-ui, -apple-system, sans-serif" font-size="12" letter-spacing="4" fill="#b45309" font-weight="700">AUSPICIOUS WEDDING CELEBRATION</text>
   </g>
 
-  <!-- Bottom Left: Couple Names, Details, Date -->
-  <g transform="translate(70, 420)" filter="url(#shadow)">
+  <!-- Couple Names, Details, Date -->
+  <g transform="translate(80, 400)" filter="url(#shadow)">
     <!-- Eyebrow -->
-    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="12" letter-spacing="3.5" fill="#e6c68a" font-weight="600">TOGETHER WITH THEIR FAMILIES</text>
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="13" letter-spacing="3.5" fill="#9a3412" font-weight="700">TOGETHER WITH THEIR FAMILIES</text>
     
     <!-- Couple Names -->
-    <text x="0" y="65" font-family="Georgia, Garamond, serif" font-size="64" font-weight="500" fill="url(#gold)">
+    <text x="0" y="68" font-family="Georgia, Garamond, serif" font-size="66" font-weight="bold" fill="url(#gold)">
       Anish &amp; Dr. Archi
     </text>
 
     <!-- Date & Location -->
-    <text x="0" y="112" font-family="system-ui, -apple-system, sans-serif" font-size="16" letter-spacing="2" fill="#f4efe8" fill-opacity="0.92">
-      NOVEMBER 6 – 11, 2026  ·  JAMMU, J&amp;K
+    <text x="0" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="16" letter-spacing="2" fill="#78350f" font-weight="700">
+      NOV 11 GRAND RECEPTION (VIVAH VATIKA)  ·  NOV 10 ROYAL BARAAT  ·  JAMMU
     </text>
   </g>
 
   <!-- Bottom Right: Call To Action Pill Button -->
-  <g transform="translate(930, 508)" filter="url(#shadow)">
-    <rect width="200" height="46" rx="23" fill="#07101d" fill-opacity="0.9" stroke="#e6c68a" stroke-width="1.5"/>
-    <text x="100" y="28" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#e6c68a">
-      OPEN INVITATION ✦
+  <g transform="translate(880, 500)" filter="url(#shadow)">
+    <rect width="250" height="52" rx="26" fill="#be123c" stroke="#f59e0b" stroke-width="2"/>
+    <text x="125" y="32" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" letter-spacing="2" fill="#ffffff">
+      ENTER CELEBRATION ✦
     </text>
   </g>
 </svg>

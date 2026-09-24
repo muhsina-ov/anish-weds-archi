@@ -8,8 +8,11 @@ interface Petal {
   speedX: number;
   rotation: number;
   rotationSpeed: number;
+  flip: number;
+  flipSpeed: number;
   opacity: number;
   color: string;
+  type: "rose" | "marigold" | "lotus" | "sparkle";
 }
 
 export default function FloralShower() {
@@ -22,65 +25,116 @@ export default function FloralShower() {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    let width = (canvas.width = window.innerWidth * dpr);
+    let height = (canvas.height = window.innerHeight * dpr);
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
 
     const onResize = () => {
       if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      width = canvas.width = window.innerWidth * dpr;
+      height = canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
     };
     window.addEventListener("resize", onResize);
 
-    const colors = [
-      "#f4a7b9", // soft pink rose
-      "#e86b88", // vibrant lotus pink
-      "#f7c469", // golden marigold
-      "#e59846", // deep saffron marigold
-      "#fdf0cd", // creamy jasmine
-    ];
+    const roseColors = ["#be123c", "#e11d48", "#fb7185", "#f43f5e"];
+    const marigoldColors = ["#f59e0b", "#d97706", "#f97316", "#fbbf24"];
+    const lotusColors = ["#f472b6", "#ec4899", "#fda4af"];
+    const sparkleColors = ["#fef08a", "#fde047", "#ffffff"];
 
-    const petalCount = Math.min(32, Math.floor(width / 35));
-    const petals: Petal[] = Array.from({ length: petalCount }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height - height,
-      size: 9 + Math.random() * 11,
-      speedY: 1.0 + Math.random() * 1.5,
-      speedX: (Math.random() - 0.5) * 1.2,
-      rotation: Math.random() * Math.PI * 2,
-      rotationSpeed: (Math.random() - 0.5) * 0.03,
-      opacity: 0.45 + Math.random() * 0.45,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    }));
+    const petalCount = Math.min(55, Math.max(30, Math.floor(window.innerWidth / 28)));
+
+    const createPetal = (randomY: boolean = false): Petal => {
+      const typeRand = Math.random();
+      let type: Petal["type"] = "rose";
+      let color = roseColors[Math.floor(Math.random() * roseColors.length)];
+
+      if (typeRand < 0.38) {
+        type = "rose";
+        color = roseColors[Math.floor(Math.random() * roseColors.length)];
+      } else if (typeRand < 0.72) {
+        type = "marigold";
+        color = marigoldColors[Math.floor(Math.random() * marigoldColors.length)];
+      } else if (typeRand < 0.9) {
+        type = "lotus";
+        color = lotusColors[Math.floor(Math.random() * lotusColors.length)];
+      } else {
+        type = "sparkle";
+        color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+      }
+
+      const size = (type === "sparkle" ? 3 + Math.random() * 4 : 10 + Math.random() * 14) * dpr;
+
+      return {
+        x: Math.random() * width,
+        y: randomY ? Math.random() * height : -30 * dpr,
+        size,
+        speedY: (1.2 + Math.random() * 1.8) * dpr,
+        speedX: (Math.random() - 0.5) * 1.1 * dpr,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.04,
+        flip: Math.random() * Math.PI,
+        flipSpeed: 0.02 + Math.random() * 0.03,
+        opacity: 0.55 + Math.random() * 0.4,
+        color,
+        type,
+      };
+    };
+
+    // Pre-populate petals across the entire vertical height so flowers fall immediately
+    const petals: Petal[] = Array.from({ length: petalCount }, () => createPetal(true));
+
+    let time = 0;
 
     const render = () => {
+      time += 0.015;
       ctx.clearRect(0, 0, width, height);
 
       for (let i = 0; i < petals.length; i++) {
         const p = petals[i];
         p.y += p.speedY;
-        p.x += Math.sin(p.y * 0.01) * 0.8 + p.speedX;
+        p.x += Math.sin(time + p.y * 0.003) * 0.9 * dpr + p.speedX;
         p.rotation += p.rotationSpeed;
+        p.flip += p.flipSpeed;
 
-        if (p.y > height + 20) {
-          p.y = -20;
-          p.x = Math.random() * width;
+        if (p.y > height + 40 * dpr) {
+          petals[i] = createPetal(false);
+          continue;
         }
 
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rotation);
+        ctx.scale(Math.cos(p.flip), 1);
         ctx.globalAlpha = p.opacity;
 
-        // Draw elegant petal shape
-        ctx.fillStyle = p.color;
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.bezierCurveTo(p.size / 2, -p.size / 2, p.size, -p.size / 4, p.size, p.size / 2);
-        ctx.bezierCurveTo(p.size, p.size * 1.2, p.size / 2, p.size * 1.4, 0, p.size * 1.5);
-        ctx.bezierCurveTo(-p.size / 2, p.size * 1.4, -p.size, p.size * 1.2, -p.size, p.size / 2);
-        ctx.bezierCurveTo(-p.size, -p.size / 4, -p.size / 2, -p.size / 2, 0, 0);
-        ctx.fill();
+        if (p.type === "sparkle") {
+          // Golden radiant star sparkle
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Graceful flower petal curve
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.moveTo(0, -p.size * 0.8);
+          ctx.bezierCurveTo(p.size * 0.6, -p.size * 0.8, p.size * 0.8, p.size * 0.3, 0, p.size);
+          ctx.bezierCurveTo(-p.size * 0.8, p.size * 0.3, -p.size * 0.6, -p.size * 0.8, 0, -p.size * 0.8);
+          ctx.fill();
+
+          // Delicate petal highlight
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+          ctx.lineWidth = 1 * dpr;
+          ctx.beginPath();
+          ctx.moveTo(0, -p.size * 0.6);
+          ctx.quadraticCurveTo(p.size * 0.2, 0, 0, p.size * 0.7);
+          ctx.stroke();
+        }
 
         ctx.restore();
       }
