@@ -1,117 +1,158 @@
-import { CalendarPlus, Navigation } from "lucide-react";
+import { CalendarPlus, Navigation, Sparkles, Star } from "lucide-react";
 import Reveal, { SectionHeading } from "../components/Reveal";
 import {
   wedding,
   googleCalendarUrl,
   downloadICS,
-  mapsDirectionsUrl,
 } from "../config";
 
 export default function Venue() {
+  const rec = wedding.bottomHighlights.reception;
+  const bar = wedding.bottomHighlights.baraat;
+
   return (
-    <section className="night-section relative overflow-hidden px-6 py-28 sm:py-40">
-      <SectionHeading kicker="Where and when" title="Celebration Venues" />
+    <section id="highlights" className="luminous-section relative overflow-hidden px-6 py-20 sm:py-32 border-t border-amber-200/60">
+      <SectionHeading
+        kicker="Key Wedding Highlights"
+        title="Celebration Venues"
+      />
 
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <Reveal className="flex flex-col items-start gap-4 text-left">
-          <p className="section-kicker">Jammu, Jammu & Kashmir</p>
-          <h3 className="font-display text-4xl leading-tight text-pearl sm:text-5xl">
-            {wedding.venue.name}
-          </h3>
-          <p className="max-w-md text-sm leading-relaxed text-pearl/70">
-            {wedding.venue.address}
-          </p>
-          <p className="font-display text-lg tracking-wide text-champagne">
-            {wedding.dateLabel} · {wedding.timeLabel}
-          </p>
-
-          <div className="flex flex-wrap gap-5 py-2">
-            <a
-              href={googleCalendarUrl()}
-              target="_blank"
-              rel="noreferrer"
-              className="text-link flex items-center gap-2"
-            >
-              <CalendarPlus size={14} /> Add to calendar
-            </a>
-            <button type="button" onClick={downloadICS} className="text-link">
-              Download .ics
-            </button>
-          </div>
-
-          <div className="mt-4 w-full space-y-3">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-champagne/80 font-medium">
-              All Destination Locations
+      {/* DOUBLE HIGHLIGHTS SECTION: Reception (Featured Star) + Baraat */}
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <div className="text-center mb-10">
+            <span className="inline-block rounded-full bg-amber-100 px-4 py-1 font-cinzel text-xs font-bold uppercase tracking-[0.25em] text-amber-800">
+              Double Highlights Spotlight
+            </span>
+            <p className="font-display text-2xl sm:text-3xl text-amber-950 font-bold mt-2">
+              Mark Your Calendar for Our Grand Celebrations
             </p>
-            <div className="grid gap-3">
-              {wedding.venues.map((v) => (
-                <div
-                  key={v.name + v.role}
-                  className="flex items-center justify-between gap-4 rounded-xl border border-champagne/15 bg-ink/40 p-4 backdrop-blur-sm transition-colors hover:border-champagne/40"
-                >
-                  <div className="min-w-0">
-                    <span className="text-[10px] uppercase tracking-wider text-glow-warm">
-                      {v.role}
-                    </span>
-                    <h4 className="font-display text-lg font-medium text-pearl mt-0.5">
-                      {v.name}
-                    </h4>
-                    <p className="text-xs text-pearl/60 truncate">{v.address}</p>
-                    {v.dateInfo && (
-                      <p className="text-[10px] text-champagne/70 mt-0.5">{v.dateInfo}</p>
-                    )}
-                  </div>
-                  <a
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-                      v.mapsQuery
-                    )}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-champagne/30 bg-champagne/10 text-champagne transition-all hover:scale-105 hover:bg-champagne/20"
-                    title={`Directions to ${v.name}`}
-                  >
-                    <Navigation size={14} />
-                  </a>
-                </div>
-              ))}
-            </div>
           </div>
         </Reveal>
 
-        <Reveal delay={0.08} className="lg:pt-2">
-          <a
-            href={mapsDirectionsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="group relative flex h-[28rem] items-end overflow-hidden rounded-2xl border border-champagne/20 shadow-[0_28px_80px_rgba(0,0,0,0.4)]"
-            aria-label={`Open directions to ${wedding.venue.name}`}
-          >
-            <img
-              src={wedding.assets.environment}
-              alt="Celebration venue"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.03]"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
-            <div className="relative flex w-full items-end justify-between gap-4 p-6">
-              <div>
-                <span className="inline-block rounded-full bg-champagne/20 px-2.5 py-0.5 text-[9px] uppercase tracking-widest text-champagne mb-1.5 backdrop-blur-sm">
-                  Primary Venue
+        <div className="grid gap-8 md:grid-cols-2 items-stretch">
+          {/* CARD 1: GRAND RECEPTION (HIGHEST PRIORITY / STAR HIGHLIGHT) */}
+          <Reveal delay={0.08} className="flex">
+            <div className="star-reception-card relative flex flex-col justify-between w-full rounded-3xl p-8 sm:p-10 text-left shadow-2xl transition-all duration-300 hover:scale-[1.01]">
+              <div className="flex items-center justify-between gap-4">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-600 via-rose-600 to-amber-700 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-md animate-gold-pulse">
+                  <Star size={14} className="fill-white" />
+                  <span>STAR HIGHLIGHT · GALA DINNER</span>
                 </span>
-                <p className="font-display text-2xl text-pearl">
-                  {wedding.venue.name}
+                <span className="font-cinzel text-xs font-bold text-amber-800">
+                  NOV 11
+                </span>
+              </div>
+
+              <div className="my-6">
+                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.2em] text-rose-700">
+                  {rec.date}
                 </p>
-                <p className="mt-1 text-xs text-pearl/70">
-                  {wedding.venue.landmark} · {wedding.venue.directionHint}
+                <h3 className="font-display text-4xl sm:text-5xl font-bold text-amber-950 mt-1">
+                  {rec.title}
+                </h3>
+                <p className="text-sm font-semibold text-rose-800 mt-2">
+                  Time: {rec.time}
+                </p>
+
+                <div className="mt-5 rounded-2xl border-2 border-amber-400/80 bg-white/90 p-5 shadow-sm">
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-amber-700">Primary Venue</p>
+                  <p className="font-display text-2xl font-bold text-amber-950 mt-0.5">
+                    {rec.venue}
+                  </p>
+                  <p className="text-sm text-amber-900/80 mt-1">
+                    {rec.address}
+                  </p>
+                </div>
+
+                <p className="mt-4 text-sm leading-relaxed text-amber-900/85">
+                  {rec.description}
                 </p>
               </div>
-              <span className="grid h-11 w-11 shrink-0 place-items-center border border-champagne/30 bg-ink/75 text-champagne backdrop-blur-md transition-transform duration-300 group-hover:-translate-y-1">
-                <Navigation size={16} />
-              </span>
+
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(rec.mapsQuery)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-600 via-rose-600 to-amber-700 px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-lg transition-all hover:scale-105"
+                >
+                  <Navigation size={15} />
+                  <span>Directions to Vivah Vatika</span>
+                </a>
+                <a
+                  href={googleCalendarUrl({ title: `${wedding.groom} & ${wedding.bride} — Grand Reception`, dateISO: wedding.receptionDateISO, venue: rec.venue, address: rec.address })}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-amber-400 bg-white px-4 py-3 text-xs font-bold uppercase tracking-[0.14em] text-amber-900 shadow-sm transition-all hover:bg-amber-50"
+                >
+                  <CalendarPlus size={15} />
+                  <span>Calendar</span>
+                </a>
+              </div>
             </div>
-          </a>
-        </Reveal>
+          </Reveal>
+
+          {/* CARD 2: ROYAL BARAAT & WEDDING CEREMONY */}
+          <Reveal delay={0.16} className="flex">
+            <div className="relative flex flex-col justify-between w-full rounded-3xl border-2 border-amber-300/80 bg-white/95 p-8 sm:p-10 text-left shadow-xl transition-all duration-300 hover:scale-[1.01]">
+              <div className="flex items-center justify-between gap-4">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 border border-amber-400 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-900">
+                  <Sparkles size={13} className="text-amber-600" />
+                  <span>ROYAL BARAAT &amp; WEDDING</span>
+                </span>
+                <span className="font-cinzel text-xs font-bold text-amber-800">
+                  NOV 10
+                </span>
+              </div>
+
+              <div className="my-6">
+                <p className="font-cinzel text-xs font-bold uppercase tracking-[0.2em] text-amber-700">
+                  {bar.date}
+                </p>
+                <h3 className="font-display text-4xl sm:text-5xl font-bold text-amber-950 mt-1">
+                  {bar.title}
+                </h3>
+                <p className="text-sm font-semibold text-rose-800 mt-2">
+                  Time: {bar.time}
+                </p>
+
+                <div className="mt-5 rounded-2xl border border-amber-300/60 bg-amber-50/50 p-5 shadow-sm">
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-amber-700">Venue</p>
+                  <p className="font-display text-2xl font-bold text-amber-950 mt-0.5">
+                    {bar.venue}
+                  </p>
+                  <p className="text-sm text-amber-900/80 mt-1">
+                    {bar.address}
+                  </p>
+                </div>
+
+                <p className="mt-4 text-sm leading-relaxed text-amber-900/85">
+                  {bar.description}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(bar.mapsQuery)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-amber-900 px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-amber-50 shadow-md transition-all hover:bg-amber-950"
+                >
+                  <Navigation size={15} />
+                  <span>Directions to RK Resort</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={downloadICS}
+                  className="inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-white px-4 py-3 text-xs font-bold uppercase tracking-[0.14em] text-amber-900 shadow-sm transition-all hover:bg-amber-50"
+                >
+                  <span>Download .ics</span>
+                </button>
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

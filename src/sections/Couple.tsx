@@ -5,61 +5,63 @@ export default function Couple() {
   const copyHashtag = async () => {
     try {
       await navigator.clipboard.writeText(wedding.hashtag);
-    } catch {
-      // Clipboard access is optional.
-    }
+    } catch {}
   };
 
   return (
-    <section className="night-section relative overflow-hidden px-6 py-28 sm:py-40">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(232,175,194,.13),transparent_58%)]" />
+    <section className="luminous-section relative overflow-hidden px-6 py-20 sm:py-32">
       <SectionHeading
-        kicker="Two families, one promise"
+        kicker="Two Families, One Blessed Beginning"
         title={`${wedding.groom} & ${wedding.bride}`}
       />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1fr_1.25fr_1fr]">
+      <div className="relative mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_1.2fr_1fr]">
+        {/* Groom Side */}
         <Reveal className="order-2 text-center md:order-1 md:text-right">
-          <p className="section-kicker">The bride</p>
-          <h3 className="font-display mt-2 text-4xl text-pearl">
-            {wedding.brideFull}
+          <span className="inline-block rounded-full bg-amber-100 px-3 py-1 font-cinzel text-[11px] font-bold uppercase tracking-wider text-amber-800">
+            The Groom
+          </span>
+          <h3 className="font-display mt-2 text-3xl sm:text-4xl font-bold text-amber-950">
+            {wedding.groomFull}
           </h3>
-          <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-pearl/55 md:ml-auto md:mr-0">
-            {wedding.brideParents}
+          <p className="mt-2 text-sm text-amber-900/75 leading-relaxed">
+            {wedding.groomParents}
           </p>
         </Reveal>
 
+        {/* Central Couple Artwork */}
         <Reveal delay={0.08} className="order-1 md:order-2">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-xs">
-            <div className="absolute inset-[9%] rounded-full bg-gold/12 blur-3xl" />
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm rounded-3xl overflow-hidden border-2 border-amber-400/50 bg-white p-2 shadow-2xl">
             <img
               src={wedding.assets.couple}
-              alt={`${wedding.bride} and ${wedding.groom} seated together`}
-              className="relative h-full w-full object-contain drop-shadow-[0_28px_55px_rgba(0,0,0,.5)]"
+              alt={`${wedding.groom} & ${wedding.bride}`}
+              className="h-full w-full object-contain rounded-2xl"
               loading="lazy"
-              decoding="async"
             />
           </div>
         </Reveal>
 
+        {/* Bride Side */}
         <Reveal delay={0.16} className="order-3 text-center md:text-left">
-          <p className="section-kicker">The groom</p>
-          <h3 className="font-display mt-2 text-4xl text-pearl">
-            {wedding.groomFull}
+          <span className="inline-block rounded-full bg-rose-100 px-3 py-1 font-cinzel text-[11px] font-bold uppercase tracking-wider text-rose-800">
+            The Bride
+          </span>
+          <h3 className="font-display mt-2 text-3xl sm:text-4xl font-bold text-amber-950">
+            {wedding.brideFull}
           </h3>
-          <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-pearl/55 md:ml-0 md:mr-auto">
-            {wedding.groomParents}
+          <p className="mt-2 text-sm text-amber-900/75 leading-relaxed">
+            {wedding.brideParents}
           </p>
         </Reveal>
       </div>
 
-      <Reveal delay={0.2} className="mt-8 flex justify-center">
+      <Reveal delay={0.2} className="mt-10 flex justify-center">
         <button
           type="button"
           onClick={copyHashtag}
-          className="text-link"
+          className="rounded-full border border-amber-400/60 bg-white px-5 py-2 font-cinzel text-xs font-semibold uppercase tracking-widest text-amber-900 shadow-sm transition-all hover:bg-amber-50"
         >
-          {wedding.hashtag}
+          {wedding.hashtag} · Tap to Copy
         </button>
       </Reveal>
     </section>
