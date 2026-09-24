@@ -228,41 +228,6 @@ export const wedding = {
     audioRangiSaari: "/audio/rangi-saari.m4a",
   },
 
-  photos: [
-    {
-      id: "rings-portrait",
-      src: "/assets/photos/couple-hands-rings.png",
-      title: "Sacred Ring Ceremony",
-      subtitle: "The Eternal Bond of Love & Devotion",
-      tag: "FEATURED PORTRAIT",
-      aspect: "portrait",
-    },
-    {
-      id: "ring-exchange-1",
-      src: "/assets/photos/couple-ring-exchange-1.jpg",
-      title: "Auspicious Varmala & Rings",
-      subtitle: "Blessings of Elders & Divine Grace",
-      tag: "CEREMONY MOMENT",
-      aspect: "landscape",
-    },
-    {
-      id: "ring-exchange-2",
-      src: "/assets/photos/couple-ring-exchange-2.jpg",
-      title: "Traditional Henna & Vows",
-      subtitle: "Intricate Mehendi Art & Golden Rings",
-      tag: "SACRED RITUALS",
-      aspect: "landscape",
-    },
-    {
-      id: "rings-bw",
-      src: "/assets/photos/couple-rings-bw.png",
-      title: "Timeless Togetherness",
-      subtitle: "Two Souls Joined in Sacred Matrimony",
-      tag: "TIMELESS MOMENT",
-      aspect: "landscape",
-    },
-  ],
-
   audioTracks: [
     {
       id: "piya-ghar-aavenge",
@@ -296,7 +261,6 @@ export const wedding = {
     events: true,
     venue: true,
     countdown: true,
-    gallery: true,
   },
 };
 
