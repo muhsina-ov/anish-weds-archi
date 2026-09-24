@@ -11,6 +11,13 @@ export default function Events() {
 
   return (
     <section id="events" className="luminous-section relative overflow-hidden px-6 py-20 sm:py-32">
+      {/* Template Lotus Mandap Watermark */}
+      <img
+        src={wedding.assets.mandap}
+        alt=""
+        className="pointer-events-none absolute right-[-5%] top-12 w-[60%] max-w-lg opacity-[0.08] filter drop-shadow-lg"
+      />
+
       <SectionHeading
         kicker="Auspicious Celebrations"
         title="Wedding Festivities"

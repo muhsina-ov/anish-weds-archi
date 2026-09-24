@@ -18,6 +18,18 @@ export default function Footer() {
 
   return (
     <footer className="relative flex flex-col justify-center items-center overflow-hidden border-t-2 border-amber-300/80 bg-gradient-to-b from-[#faf6ee] to-[#f4ebe0] px-6 py-20 text-center">
+      {/* Template Background Lotus & Diya */}
+      <img
+        src={wedding.assets.foregroundLotus}
+        alt=""
+        className="pointer-events-none absolute bottom-0 left-[-10%] w-48 sm:w-72 opacity-20 filter drop-shadow-sm"
+      />
+      <img
+        src={wedding.assets.diya}
+        alt=""
+        className="pointer-events-none absolute top-6 right-8 sm:right-16 w-14 sm:w-20 opacity-40 filter drop-shadow-md"
+      />
+
       <Reveal className="relative z-10 mx-auto max-w-lg flex flex-col items-center gap-4">
         {/* Sacred Blessing */}
         <p className="font-devanagari text-lg font-bold text-rose-800">

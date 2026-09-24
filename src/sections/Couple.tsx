@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles, Camera, X, Maximize2 } from "lucide-react";
+import { Sparkles, Camera, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal, { SectionHeading } from "../components/Reveal";
 import { wedding } from "../config";
@@ -22,7 +22,7 @@ export default function Couple() {
         title={`${wedding.groom} & ${wedding.bride}`}
       />
 
-      <div className="relative mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-[1fr_1.2fr_1fr]">
+      <div className="relative mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-[1fr_1.25fr_1fr]">
         {/* Groom Side */}
         <Reveal className="order-2 text-center md:order-1 md:text-right">
           <span className="inline-block rounded-full bg-amber-100 px-3.5 py-1 font-cinzel text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-300">
@@ -39,37 +39,24 @@ export default function Couple() {
           </div>
         </Reveal>
 
-        {/* Central Featured Couple Photo: Real Sacred Ring Ceremony Photo */}
+        {/* Central Template Signature Couple Illustration */}
         <Reveal delay={0.08} className="order-1 md:order-2">
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-sm rounded-3xl overflow-hidden border-4 border-amber-400/80 bg-white p-2 shadow-2xl ring-8 ring-amber-400/20 group">
-            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-amber-50">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm rounded-3xl overflow-hidden border-4 border-amber-400/80 bg-white p-2 shadow-2xl ring-8 ring-amber-400/20 group">
+            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-b from-[#fdfbf7] to-[#fbf0de] flex items-center justify-center p-3">
               <img
-                src={wedding.photos?.[0]?.src || wedding.assets.couple}
-                alt={`${wedding.groom} & ${wedding.bride} — Sacred Ring Ceremony`}
-                className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                src={wedding.assets.couple}
+                alt={`${wedding.groom} & ${wedding.bride} — Seated in Royal Splendor`}
+                className="h-full w-full object-contain filter drop-shadow-[0_16px_25px_rgba(0,0,0,0.18)] transition-transform duration-700 group-hover:scale-105"
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
-
-              {/* Photo Label Overlay */}
-              <div className="absolute bottom-3 inset-x-3 text-center text-white">
-                <span className="inline-block rounded-full bg-rose-700/85 px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm">
-                  Sacred Ring Ceremony
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white/90 via-white/50 to-transparent p-3 text-center">
+                <span className="inline-block rounded-full bg-amber-600/90 px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white shadow-sm">
+                  Royal Union
                 </span>
-                <p className="font-display text-lg font-bold mt-1 text-amber-100">
+                <p className="font-display text-lg font-bold text-amber-950 mt-0.5">
                   {wedding.groom} &amp; {wedding.bride}
                 </p>
               </div>
-
-              {/* Expand button */}
-              <button
-                type="button"
-                onClick={() => setSelectedPhoto(wedding.photos?.[0]?.src || "")}
-                className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md opacity-80 hover:opacity-100 transition-opacity"
-                aria-label="View photo full size"
-              >
-                <Maximize2 size={14} />
-              </button>
             </div>
           </div>
         </Reveal>
@@ -91,7 +78,7 @@ export default function Couple() {
         </Reveal>
       </div>
 
-      {/* CHERISHED MOMENTS & RING CEREMONY GALLERY */}
+      {/* CHERISHED MOMENTS & RING CEREMONY GALLERY (Real Couple Photos) */}
       {wedding.photos && wedding.photos.length > 0 && (
         <div className="mt-20 mx-auto max-w-5xl">
           <Reveal delay={0.2} className="text-center mb-8">

@@ -4,6 +4,13 @@ import { wedding } from "../config";
 export default function InviteMessage() {
   return (
     <section id="main-invitation" className="luminous-section relative overflow-hidden px-6 py-20 sm:py-32 border-y border-amber-200/60">
+      {/* Template Floral Lotus Accent */}
+      <img
+        src={wedding.assets.foregroundLotus}
+        alt=""
+        className="pointer-events-none absolute bottom-[-15%] right-[-10%] w-[55%] max-w-2xl opacity-[0.12] filter drop-shadow-md"
+      />
+
       <div className="relative mx-auto max-w-4xl text-center">
         {/* Auspicious Shloka */}
         <Reveal>
