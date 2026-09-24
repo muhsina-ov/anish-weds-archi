@@ -222,9 +222,10 @@ export const wedding = {
     petals: "/assets/lotus/floating-petals.png",
     frame: "/assets/lotus/ornamental-frame.png",
     social: "/og-image.jpg",
-    audioM4a: "/audio/rangi-saari.m4a",
-    audioWebm: "/audio/rangi-saari.webm",
-    audioMp3: "/audio/ambient-shehnai.mp3",
+    audioMp3: "/audio/piya-ghar-aavenge.mp3",
+    audioM4a: "/audio/piya-ghar-aavenge.m4a",
+    audioShehnai: "/audio/ambient-shehnai.mp3",
+    audioRangiSaari: "/audio/rangi-saari.m4a",
   },
 
   photos: [
@@ -264,19 +265,26 @@ export const wedding = {
 
   audioTracks: [
     {
+      id: "piya-ghar-aavenge",
+      title: "Piya Ghar Aavenge",
+      subtitle: "Soulful Wedding Soundtrack · Kailash Kher",
+      src: "/audio/piya-ghar-aavenge.mp3",
+      type: "audio/mpeg",
+    },
+    {
       id: "shehnai",
       title: "Wedding Shehnai Dhun",
-      subtitle: "Auspicious Mangal Dhun",
+      subtitle: "Traditional Mangal Dhun",
       src: "/audio/ambient-shehnai.mp3",
       type: "audio/mpeg",
     },
     {
       id: "rangi-saari",
       title: "Rangi Saari",
-      subtitle: "Celebratory Sangeet Track",
+      subtitle: "Celebratory Sangeet Melodies",
       src: "/audio/rangi-saari.m4a",
       type: "audio/mp4",
-      fallbackSrc: "/audio/ambient-shehnai.mp3",
+      fallbackSrc: "/audio/piya-ghar-aavenge.mp3",
     },
   ],
 
