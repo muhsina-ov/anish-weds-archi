@@ -222,13 +222,21 @@ export const wedding = {
     petals: "/assets/lotus/floating-petals.png",
     frame: "/assets/lotus/ornamental-frame.png",
     social: "/og-image.jpg",
-    audioMp3: "/audio/piya-ghar-aavenge.mp3",
-    audioM4a: "/audio/piya-ghar-aavenge.m4a",
+    audioMp3: "/audio/ve-haaniyaan.mp3",
+    audioM4a: "/audio/ve-haaniyaan.m4a",
+    audioPiya: "/audio/piya-ghar-aavenge.mp3",
     audioShehnai: "/audio/ambient-shehnai.mp3",
     audioRangiSaari: "/audio/rangi-saari.m4a",
   },
 
   audioTracks: [
+    {
+      id: "ve-haaniyaan",
+      title: "Ve Haaniyaan",
+      subtitle: "Romantic Wedding Anthem · Danny & Avvy Sra",
+      src: "/audio/ve-haaniyaan.mp3",
+      type: "audio/mpeg",
+    },
     {
       id: "piya-ghar-aavenge",
       title: "Piya Ghar Aavenge",
@@ -242,14 +250,6 @@ export const wedding = {
       subtitle: "Traditional Mangal Dhun",
       src: "/audio/ambient-shehnai.mp3",
       type: "audio/mpeg",
-    },
-    {
-      id: "rangi-saari",
-      title: "Rangi Saari",
-      subtitle: "Celebratory Sangeet Melodies",
-      src: "/audio/rangi-saari.m4a",
-      type: "audio/mp4",
-      fallbackSrc: "/audio/piya-ghar-aavenge.mp3",
     },
   ],
 
