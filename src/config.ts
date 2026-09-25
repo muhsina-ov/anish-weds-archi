@@ -6,8 +6,8 @@ export const wedding = {
   groomMother: "Smt. Kavita Ghai",
   bride: "Archi",
   brideFull: "Dr. Archi Gupta",
-  brideParents: "Daughter of Smt. Rashmi Gupta & Shri Rajesh GUPTA",
-  brideFather: "Shri Rajesh GUPTA",
+  brideParents: "Daughter of Smt. Rashmi Gupta & Shri Rajesh Gupta",
+  brideFather: "Shri Rajesh Gupta",
   brideMother: "Smt. Rashmi Gupta",
   familySignoff: "The Ghai & Gupta Families",
   hashtag: "#AnishWedsArchi",
@@ -15,6 +15,13 @@ export const wedding = {
 
   auspiciousBlessing: "॥ श्री गणेशाय नमः ॥ · ॥ जय बुआ दाती ॥",
   jaiBuaDati: "॥ जय बुआ दाती ॥",
+
+  nieceMessage: {
+    hindi: "Mere Mamu ki shaadi mein zaroor aana",
+    english: "Please do come to my Mamu's wedding",
+    tagline: "Special Invitation from Mamu's Niece",
+    subtext: "Eagerly waiting to welcome all our lovely guests with open arms! ❤️",
+  },
 
   intro: {
     eyebrow: "॥ जय बुआ दाती ॥ · A Sacred Celebration",
@@ -233,7 +240,7 @@ export const wedding = {
     {
       id: "ve-haaniyaan",
       title: "Ve Haaniyaan",
-      subtitle: "Romantic Wedding Anthem · Danny & Avvy Sra",
+      subtitle: "Danny & Avvy Sra · “Tere Kolo Mainu Saah Milde”",
       src: "/audio/ve-haaniyaan.mp3",
       type: "audio/mpeg",
     },

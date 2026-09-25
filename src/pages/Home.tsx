@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import FloralShower from "../components/FloralShower";
 import IntroJourney from "../components/IntroJourney";
 import LotusParallaxScene from "../components/LotusParallaxScene";
+import Countdown from "../components/Countdown";
 import MusicToggle from "../components/MusicToggle";
 import ScrollProgress from "../components/ScrollProgress";
 import InviteMessage from "../sections/InviteMessage";
@@ -20,6 +21,7 @@ export default function Home() {
       <ScrollProgress />
       <FloralShower />
       <LotusParallaxScene />
+      <Countdown />
       <InviteMessage />
       <Couple />
       <Events />
