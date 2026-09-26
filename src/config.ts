@@ -23,6 +23,28 @@ export const wedding = {
     subtext: "Eagerly waiting to welcome all our lovely guests with open arms! ❤️",
   },
 
+  chachuMessage: {
+    hindi: "Mere chachu ki shaadi mein bhangra bajega",
+    english: "There will be bhangra at my Chachu's wedding!",
+    tagline: "Special Invitation from Chachu's Little One",
+    subtext: "Can't wait to dance with everyone on the dhol beats! 🥁✨",
+  },
+
+  kidsMessages: {
+    tagline: "Special Invitation from the Little Ones",
+    subtext: "Eagerly waiting to welcome all our lovely guests with open arms & lots of dance! ❤️",
+    mamu: {
+      hindi: "Mere Mamu ki shaadi mein zaroor aana",
+      english: "Please do come to my Mamu's wedding",
+      tagline: "From Mamu's Niece",
+    },
+    chachu: {
+      hindi: "Mere chachu ki shaadi mein bhangra bajega",
+      english: "There will be bhangra at my Chachu's wedding!",
+      tagline: "From Chachu's Little One",
+    },
+  },
+
   intro: {
     eyebrow: "॥ जय बुआ दाती ॥ · A Sacred Celebration",
     title: "Anish & Dr. Archi",

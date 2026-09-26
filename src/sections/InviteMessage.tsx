@@ -61,25 +61,45 @@ export default function InviteMessage() {
           </div>
         </Reveal>
 
-        {/* Sweet Special Note on Behalf of the Niece */}
-        <Reveal delay={0.28} className="mt-10 mx-auto max-w-xl">
+        {/* Sweet Special Notes on Behalf of the Little Ones */}
+        <Reveal delay={0.28} className="mt-10 mx-auto max-w-2xl">
           <div className="relative overflow-hidden rounded-3xl border-2 border-rose-300/80 bg-gradient-to-r from-rose-50/95 via-amber-50/90 to-rose-50/95 p-6 sm:p-8 text-center shadow-lg ring-4 ring-rose-200/30">
             <div className="inline-flex items-center gap-2 rounded-full bg-rose-100 px-4 py-1 text-xs font-bold uppercase tracking-wider text-rose-800 border border-rose-200">
               <span className="text-rose-600">❤️</span>
-              <span>{wedding.nieceMessage.tagline}</span>
+              <span>{wedding.kidsMessages.tagline}</span>
               <span className="text-rose-600">❤️</span>
             </div>
 
-            <p className="font-devanagari text-2xl sm:text-3xl font-bold text-rose-900 mt-4 leading-snug tracking-wide">
-              "{wedding.nieceMessage.hindi}"
-            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 text-center">
+              {/* Mamu ki Shaadi */}
+              <div className="rounded-2xl border border-rose-200/80 bg-white/90 p-5 shadow-xs flex flex-col justify-center items-center">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-rose-700 bg-rose-50 px-3 py-0.5 rounded-full border border-rose-200/60">
+                  {wedding.kidsMessages.mamu.tagline}
+                </span>
+                <p className="font-devanagari text-xl sm:text-2xl font-bold text-rose-900 mt-3 leading-snug">
+                  "{wedding.kidsMessages.mamu.hindi}"
+                </p>
+                <p className="font-display italic text-xs sm:text-sm text-amber-950 font-medium mt-1.5">
+                  ("{wedding.kidsMessages.mamu.english}")
+                </p>
+              </div>
 
-            <p className="font-display italic text-base sm:text-lg text-amber-950 font-medium mt-1.5">
-              ("{wedding.nieceMessage.english}")
-            </p>
+              {/* Chachu ki Shaadi */}
+              <div className="rounded-2xl border border-amber-200/80 bg-white/90 p-5 shadow-xs flex flex-col justify-center items-center">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-3 py-0.5 rounded-full border border-amber-200/60">
+                  {wedding.kidsMessages.chachu.tagline}
+                </span>
+                <p className="font-devanagari text-xl sm:text-2xl font-bold text-rose-900 mt-3 leading-snug">
+                  "{wedding.kidsMessages.chachu.hindi}"
+                </p>
+                <p className="font-display italic text-xs sm:text-sm text-amber-950 font-medium mt-1.5">
+                  ("{wedding.kidsMessages.chachu.english}")
+                </p>
+              </div>
+            </div>
 
-            <p className="text-xs font-semibold text-amber-800/80 mt-3">
-              {wedding.nieceMessage.subtext}
+            <p className="text-xs font-semibold text-amber-800/80 mt-5">
+              {wedding.kidsMessages.subtext}
             </p>
           </div>
         </Reveal>
